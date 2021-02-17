@@ -21,11 +21,11 @@
 		},
 		"other": {
 			"Xdebug": {
-				"versionCommand": "php --version | grep -oE 'Xdebug\\sv[^,]+' | sed -n '/Xdebug\\sv/s///p'",
+				"versionCommand": "php --version | grep -oE 'with Xdebug\\sv[^,]+'| sed -n '/with Xdebug\\sv/s///p'",
 				"downloadUrl":"https://xdebug.org/"
 			},
 			"Composer": {
-				"versionCommand": "composer --version | grep -oE 'version\\s[^ ]+' | sed -n '/version\\s/s///p'",
+				"versionCommand": "composer --version 2>/dev/null | grep -oE 'version\\s[^ ]+' | sed -n '/version\\s/s///p'",
 				"downloadUrl": "https://getcomposer.org/installer"
 			}
 		}
