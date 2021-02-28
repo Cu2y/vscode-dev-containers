@@ -68,8 +68,7 @@ case "${TARGET_ARCH}" in
         TARGET_ARCH=armv6l ;;
     aarch64 | arm64v8 | armv8l)
         TARGET_ARCH=arm64 ;;
-    esac
-fi
+esac
 
 # Other settings
 GO_DOWNLOAD_URL="${GO_DOWNLOAD_URL:-"https://golang.org/dl/go${TARGET_GO_VERSION}.linux-${TARGET_ARCH}.tar.gz"}"
@@ -101,7 +100,7 @@ GO_INSTALL_SCRIPT="$(cat <<EOF
     set -e
     echo "Downloading Go ${TARGET_GO_VERSION}..."
     curl -sSL -o /tmp/go.tar.gz "${GO_DOWNLOAD_URL}"
-    ([ "${GO_SHA256}" = "dev-mode" ] || (echo "${GO_SHA256} */tmp/go.tar.gz" | sha256sum -c -)) \
+    ([ "${GO_SHA256}" = "dev-mode" ] || (echo "${GO_SHA256} */tmp/go.tar.gz" | sha256sum -c -))
     echo "Extracting Go ${TARGET_GO_VERSION}..."
     tar -xzf /tmp/go.tar.gz -C "${TARGET_GOROOT}" --strip-components=1
     rm -f /tmp/go.tar.gz
